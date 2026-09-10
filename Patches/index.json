@@ -1,0 +1,127 @@
+[
+  {
+    "relative_path": "BmGame/Movies/PDLC_Intro.usm",
+    "manifest_file": "BmGame_Movies_PDLC_Intro.usm.json",
+    "edits": 8
+  },
+  {
+    "relative_path": "BmGame/Movies/PDLC_Outro.usm",
+    "manifest_file": "BmGame_Movies_PDLC_Outro.usm.json",
+    "edits": 14
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/0_01.usm",
+    "manifest_file": "BmGame_MoviesStereo_0_01.usm.json",
+    "edits": 18
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/0_CW_Intro.usm",
+    "manifest_file": "BmGame_MoviesStereo_0_CW_Intro.usm.json",
+    "edits": 9
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/1_01.usm",
+    "manifest_file": "BmGame_MoviesStereo_1_01.usm.json",
+    "edits": 12
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/1_02.usm",
+    "manifest_file": "BmGame_MoviesStereo_1_02.usm.json",
+    "edits": 28
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/2_01.usm",
+    "manifest_file": "BmGame_MoviesStereo_2_01.usm.json",
+    "edits": 1
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/2_03_PT1.usm",
+    "manifest_file": "BmGame_MoviesStereo_2_03_PT1.usm.json",
+    "edits": 11
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/2_03_PT2.usm",
+    "manifest_file": "BmGame_MoviesStereo_2_03_PT2.usm.json",
+    "edits": 22
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/3_04.usm",
+    "manifest_file": "BmGame_MoviesStereo_3_04.usm.json",
+    "edits": 18
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/3_05.usm",
+    "manifest_file": "BmGame_MoviesStereo_3_05.usm.json",
+    "edits": 16
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/3_06.usm",
+    "manifest_file": "BmGame_MoviesStereo_3_06.usm.json",
+    "edits": 6
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/3_07.usm",
+    "manifest_file": "BmGame_MoviesStereo_3_07.usm.json",
+    "edits": 24
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/4_09.usm",
+    "manifest_file": "BmGame_MoviesStereo_4_09.usm.json",
+    "edits": 22
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/4_10_Pt1.usm",
+    "manifest_file": "BmGame_MoviesStereo_4_10_Pt1.usm.json",
+    "edits": 12
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/4_10_Pt2.usm",
+    "manifest_file": "BmGame_MoviesStereo_4_10_Pt2.usm.json",
+    "edits": 9
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/5_11.usm",
+    "manifest_file": "BmGame_MoviesStereo_5_11.usm.json",
+    "edits": 13
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/5_12.usm",
+    "manifest_file": "BmGame_MoviesStereo_5_12.usm.json",
+    "edits": 10
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/6_13.usm",
+    "manifest_file": "BmGame_MoviesStereo_6_13.usm.json",
+    "edits": 7
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/6_14.usm",
+    "manifest_file": "BmGame_MoviesStereo_6_14.usm.json",
+    "edits": 19
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/7_15.usm",
+    "manifest_file": "BmGame_MoviesStereo_7_15.usm.json",
+    "edits": 32
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/8_16.usm",
+    "manifest_file": "BmGame_MoviesStereo_8_16.usm.json",
+    "edits": 33
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/8_17.usm",
+    "manifest_file": "BmGame_MoviesStereo_8_17.usm.json",
+    "edits": 13
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/PDLC_Intro.usm",
+    "manifest_file": "BmGame_MoviesStereo_PDLC_Intro.usm.json",
+    "edits": 8
+  },
+  {
+    "relative_path": "BmGame/MoviesStereo/PDLC_Outro.usm",
+    "manifest_file": "BmGame_MoviesStereo_PDLC_Outro.usm.json",
+    "edits": 14
+  }
+]
