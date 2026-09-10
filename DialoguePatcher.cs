@@ -62,6 +62,7 @@ namespace UsmSubtitlePatcher
         public string content_orig_sha256 { get; set; } = "";
         public string content_patched_sha256 { get; set; } = "";
         public string vcdiff_file { get; set; } = "";
+        public int[] chunk_sizes { get; set; } = Array.Empty<int>();
     }
 
     static class DialoguePatcher
@@ -265,7 +266,7 @@ namespace UsmSubtitlePatcher
                     byte[] vcdiffBytes = File.ReadAllBytes(Path.Combine(patchesDir, m.vcdiff_file));
                     byte[] newVirt = ApplyVcdiff(currentVirt, vcdiffBytes);
 
-                    byte[] finalBytes = Rebuild(current, newVirt, m.table_start, m.meta_start, m.header_prefix_len, m.n_chunks, bodyStart);
+                    byte[] finalBytes = Rebuild(current, newVirt, m.table_start, m.meta_start, m.header_prefix_len, m.n_chunks, bodyStart, m.chunk_sizes);
 
                     // verify: decompress our own output and confirm it matches expected
                     var verifyVirt = DecompressFull(finalBytes, m.table_start, m.n_chunks, out _);
@@ -295,7 +296,7 @@ namespace UsmSubtitlePatcher
             return (ok, already, failed);
         }
 
-        static byte[] Rebuild(byte[] currentRaw, byte[] newVirt, int tableStart, int metaStart, int headerPrefixLen, int nChunks, int bodyStart)
+        static byte[] Rebuild(byte[] currentRaw, byte[] newVirt, int tableStart, int metaStart, int headerPrefixLen, int nChunks, int bodyStart, int[] chunkSizes)
         {
             var headerPrefix = new byte[headerPrefixLen];
             Array.Copy(newVirt, 0, headerPrefix, 0, metaStart);
@@ -305,10 +306,23 @@ namespace UsmSubtitlePatcher
             if (uoffCheck != bodyStart)
                 throw new InvalidOperationException($"layout sanity check failed: {uoffCheck} != {bodyStart}");
 
-            int totalBody = newVirt.Length - bodyStart;
+            // Re-chunk using the EXACT per-chunk decompressed sizes the real,
+            // in-game-verified file uses -- NOT an arbitrary equal split. An equal
+            // split can carve a chunk boundary through the middle of a single
+            // export's serialized bytes, which the game's loader does not tolerate
+            // (confirmed: caused an infinite busy-loop hang on launch in testing).
+            if (chunkSizes.Length != nChunks)
+                throw new InvalidOperationException($"chunk_sizes length {chunkSizes.Length} != n_chunks {nChunks}");
+            long totalBodyLong = (long)newVirt.Length - bodyStart;
+            long sumSizes = 0;
+            foreach (var s in chunkSizes) sumSizes += s;
+            if (sumSizes != totalBodyLong)
+                throw new InvalidOperationException($"chunk_sizes sum {sumSizes} != body length {totalBodyLong}");
+
             var boundaries = new int[nChunks + 1];
-            for (int i = 0; i <= nChunks; i++)
-                boundaries[i] = bodyStart + (int)((long)totalBody * i / nChunks);
+            boundaries[0] = bodyStart;
+            for (int i = 0; i < nChunks; i++)
+                boundaries[i + 1] = boundaries[i] + chunkSizes[i];
 
             var pieces = new byte[nChunks][];
             for (int i = 0; i < nChunks; i++)
