@@ -28,14 +28,17 @@ namespace UsmSubtitlePatcher
     {
         static int Main(string[] args)
         {
-            Console.WriteLine("=== Batman Arkham City GOTY - Greek Subtitle Patcher (cutscene videos) ===");
+            Console.WriteLine("=== Batman Arkham City GOTY - Greek Patcher (cutscene videos + dialogue) ===");
             Console.WriteLine();
 
             string exeDir = AppContext.BaseDirectory;
-            string patchesDir = Path.Combine(exeDir, "Patches");
-            if (!Directory.Exists(patchesDir))
+            string usmPatchesDir = Path.Combine(exeDir, "Patches");
+            string dialoguePatchesDir = Path.Combine(exeDir, "DialoguePatches");
+            bool haveUsm = Directory.Exists(usmPatchesDir);
+            bool haveDialogue = Directory.Exists(dialoguePatchesDir);
+            if (!haveUsm && !haveDialogue)
             {
-                Console.WriteLine($"ERROR: Patches folder not found next to the executable ({patchesDir}).");
+                Console.WriteLine($"ERROR: neither 'Patches' nor 'DialoguePatches' found next to the executable ({exeDir}).");
                 Pause();
                 return 1;
             }
@@ -50,17 +53,39 @@ namespace UsmSubtitlePatcher
             Console.WriteLine($"Game folder: {gameDir}");
             Console.WriteLine();
 
+            int ok = 0, already = 0, failed = 0;
+
+            if (haveUsm)
+            {
+                Console.WriteLine("--- Cutscene subtitles (video files) ---");
+                var (o, a, f) = RunUsmPatches(gameDir, usmPatchesDir);
+                ok += o; already += a; failed += f;
+                Console.WriteLine();
+            }
+
+            if (haveDialogue)
+            {
+                Console.WriteLine("--- Gameplay dialogue (UPK files) ---");
+                var (o, a, f) = DialoguePatcher.Run(gameDir, dialoguePatchesDir);
+                ok += o; already += a; failed += f;
+                Console.WriteLine();
+            }
+
+            Console.WriteLine($"Done. Patched now: {ok}, already patched: {already}, failed/skipped: {failed}.");
+            if (failed > 0)
+            {
+                Console.WriteLine("Some files were not touched - see messages above. Pristine copies (when found) were saved as '<file>.pristine_backup'.");
+            }
+            Pause();
+            return failed > 0 ? 2 : 0;
+        }
+
+        static (int ok, int already, int failed) RunUsmPatches(string gameDir, string patchesDir)
+        {
             var manifestFiles = Directory.GetFiles(patchesDir, "*.json")
                 .Where(f => Path.GetFileName(f) != "index.json")
                 .OrderBy(f => f)
                 .ToArray();
-
-            if (manifestFiles.Length == 0)
-            {
-                Console.WriteLine("ERROR: no patch manifests found.");
-                Pause();
-                return 1;
-            }
 
             int ok = 0, already = 0, failed = 0;
 
@@ -117,14 +142,7 @@ namespace UsmSubtitlePatcher
                 ok++;
             }
 
-            Console.WriteLine();
-            Console.WriteLine($"Done. Patched now: {ok}, already patched: {already}, failed/skipped: {failed}.");
-            if (failed > 0)
-            {
-                Console.WriteLine("Some files were not touched - see messages above. Pristine copies (when found) were saved as '<file>.pristine_backup'.");
-            }
-            Pause();
-            return failed > 0 ? 2 : 0;
+            return (ok, already, failed);
         }
 
         static byte[] ApplyEdits(byte[] data, List<EditOp> edits)
