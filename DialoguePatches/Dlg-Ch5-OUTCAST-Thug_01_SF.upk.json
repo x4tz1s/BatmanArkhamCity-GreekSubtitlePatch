@@ -1,1 +1,44 @@
-{"relative_path": "BmGame/CookedPCConsole/Dlg-Ch5-OUTCAST-Thug_01_SF.upk", "orig_size": 13855, "orig_sha256": "c718935f5741d3a3fd61986301cc42e0019fddb0a293106ed6beecd643f5b8f1", "patched_size": 16117, "patched_sha256": "9688de0d53b47ca83490f023d7699cd82e07470222b1da3e14ef561f16ee2164", "virt_orig_size": 148617, "virt_orig_sha256": "62a25c1f23670b66c18a4cd63b65292450e4181a3b8ca4a05d63312010b5c557", "virt_patched_size": 149743, "virt_patched_sha256": "cdac2558fdd6f77eeb1b1c05ed44995f24ca93ed33133227e606a5d19f321234", "content_orig_sha256": "dae5f1668a1548ca8e3db3af2a36df109c40ec2c327c00508ba3ef103be4fdbf", "content_patched_sha256": "0670e0280983807ef9e77e075d03b0164945104e692ced080deddc1094582979", "n_chunks": 3, "header_prefix_len": 181, "table_start": 117, "meta_start": 113, "body_start": 133, "orig_chunks": [{"u_off": 133, "u_size": 3983, "c_off": 181, "c_size": 1326}, {"u_off": 4116, "u_size": 4256, "c_off": 1507, "c_size": 1040}, {"u_off": 8372, "u_size": 140245, "c_off": 2547, "c_size": 11308}], "chunk_sizes": [3983, 4256, 141371], "vcdiff_file": "Dlg-Ch5-OUTCAST-Thug_01_SF.upk.vcdiff"}
+{
+ "relative_path": "BmGame/CookedPCConsole/Dlg-Ch5-OUTCAST-Thug_01_SF.upk",
+ "orig_size": 13855,
+ "orig_sha256": "c718935f5741d3a3fd61986301cc42e0019fddb0a293106ed6beecd643f5b8f1",
+ "patched_size": 16131,
+ "patched_sha256": "d8396d4dbf5c661dc7a678b3e2d6e3ccc23b3e64e5b435138d05cbb2e2c01927",
+ "virt_orig_size": 148617,
+ "virt_orig_sha256": "62a25c1f23670b66c18a4cd63b65292450e4181a3b8ca4a05d63312010b5c557",
+ "virt_patched_size": 149747,
+ "virt_patched_sha256": "b0b3eabb2688865301bebd60dae9a303a750bf8980a8f8a3d497d135494ab6f5",
+ "content_orig_sha256": "dae5f1668a1548ca8e3db3af2a36df109c40ec2c327c00508ba3ef103be4fdbf",
+ "content_patched_sha256": "f575006d931de6b430bcb8e0b4851eb8648ae9dad8c09ac181a44e90569ea085",
+ "n_chunks": 3,
+ "header_prefix_len": 181,
+ "table_start": 117,
+ "meta_start": 113,
+ "body_start": 133,
+ "orig_chunks": [
+  {
+   "u_off": 133,
+   "u_size": 3983,
+   "c_off": 181,
+   "c_size": 1326
+  },
+  {
+   "u_off": 4116,
+   "u_size": 4256,
+   "c_off": 1507,
+   "c_size": 1040
+  },
+  {
+   "u_off": 8372,
+   "u_size": 140245,
+   "c_off": 2547,
+   "c_size": 11308
+  }
+ ],
+ "chunk_sizes": [
+  3983,
+  4256,
+  141375
+ ],
+ "vcdiff_file": "Dlg-Ch5-OUTCAST-Thug_01_SF.upk.vcdiff"
+}
