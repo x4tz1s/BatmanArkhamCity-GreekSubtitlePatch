@@ -2,14 +2,14 @@
  "relative_path": "BmGame/CookedPCConsole/Dlg-Ch2-ALL-Thug_01_SF.upk",
  "orig_size": 188805,
  "orig_sha256": "684487174332c920065ca3e5bbf4273c5b533ad87228c2c8a234946bbcf70a76",
- "patched_size": 195878,
- "patched_sha256": "2a95d6febc5a18ba3d47203c5c0b5e966dc20baa85127fab2a6184d67100b721",
+ "patched_size": 195949,
+ "patched_sha256": "4524fcfba5695a83888bf0713fb48690ead6ee92853d574b8bb5d68a5e449e03",
  "virt_orig_size": 566766,
  "virt_orig_sha256": "bdf82c16dd2c4be113ef12cfd987e5387b75bb52b5e57310680ed8b3ea358a54",
- "virt_patched_size": 569498,
- "virt_patched_sha256": "eae90ef37af5f6d3ffd566715376d13c5db352dabce9cb1808a22c74cc2a38af",
+ "virt_patched_size": 569834,
+ "virt_patched_sha256": "6c6cfc5ff1d358613d0500efd191181ddf1339e83ba4415abdf97ce1c0f5f160",
  "content_orig_sha256": "85a11b30b2cbf746b0af36ed5976f5901e4b355869afed4370e6387a4ebfb213",
- "content_patched_sha256": "2af5813df421336453e9ca90ab075753aef8160721e5f8fc9946b5c90ffbbc51",
+ "content_patched_sha256": "726169ed7a7e783ee821444bb27663780e2c5ac99f2e295979f1eece678422b3",
  "n_chunks": 5,
  "header_prefix_len": 213,
  "table_start": 117,
@@ -52,7 +52,7 @@
   12160,
   258460,
   262008,
-  29063
+  29399
  ],
  "vcdiff_file": "Dlg-Ch2-ALL-Thug_01_SF.upk.vcdiff"
 }
